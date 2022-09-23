@@ -9,6 +9,18 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 
 module.exports = function(eleventyConfig) {
+
+  // MK modifications start
+  const eleventyAsciidoc = require("eleventy-plugin-asciidoc");
+
+  eleventyConfig.addPlugin(eleventyAsciidoc, {
+    attributes: {
+      showtitle: true /* Default value: undefined */,
+    },
+    safe: "unsafe" /* Default value: undefined */,
+  });
+  // MK modifications end
+
   // Copy the `img` and `css` folders to the output
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("css");
