@@ -1,0 +1,11 @@
+---
+tags: sharky
+---
+= Forward JUL log messages to log4j
+Marcel Koch <m@rcelko.ch>
+:keywords: java logging log4j util tomcat magnolia
+
+[abstract]
+Dealing with logs in the Java space is not always that easy. Thus, you have different options to select from (JUL, log4, slf4j, logback) and sometimes you have to have to struggle with seucrity issues as well. In addition, you have to make sure that all log statements produce some kind of output. Hence, different JARs ue use can rely on different implementations. In my concrete case, I had to deal with a webapp (Magnolia CMS) relying on log4j while the Servlet Container we use relies on JUL though and I want to route all JUL log statements to log4j.
+
+== Why

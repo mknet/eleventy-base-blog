@@ -8,6 +8,8 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 
+const eleventyAsciidoc = require("eleventy-plugin-asciidoc");
+
 module.exports = function(eleventyConfig) {
 
   // MK modifications start
@@ -29,6 +31,11 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
+
+  eleventyConfig.addFilter("debugger", (...args) => {
+    console.log(...args)
+    debugger;
+  })
 
   eleventyConfig.addFilter("readableDate", dateObj => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
